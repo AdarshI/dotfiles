@@ -1,0 +1,1 @@
+rofi -show "drun" -lines 6 -width 50 -eh 2 -padding 10 -bw 1 -font "System San Fransisco Display 24"

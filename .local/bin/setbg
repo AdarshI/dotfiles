@@ -1,0 +1,3 @@
+#!/bin/sh
+## Sets Wallpaper using xwallpaper
+xwallpaper --zoom ~/.config/wall.png

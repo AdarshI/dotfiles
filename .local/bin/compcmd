@@ -1,0 +1,3 @@
+#!/bin/sh
+# compton --blur-background --blur-method kawase --blur-strength 6 --opacity-rule 70:'class_g="st-256color"' --backend glx
+picom --blur-background --blur-method kawase --blur-strength 6 --opacity-rule 70:'class_g="Termite"' --backend glx
