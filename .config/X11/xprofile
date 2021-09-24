@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Start compositor
+picom --experimental-backend &
+
+# setbg &
