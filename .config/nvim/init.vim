@@ -24,6 +24,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'tpope/vim-surround'
 	Plug 'junegunn/goyo.vim'
 	Plug 'lervag/vimtex'
+	" plug 'xuhdev/vim-latex-live-preview'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'JuliaEditorSupport/julia-vim'
 	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }

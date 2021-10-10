@@ -15,8 +15,8 @@ setxkbmap -option escape:caps
 killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 
 # Reverse Scrolling Direction
-xinput --set-prop "SYNA2B34:01 06CB:7F8D Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput --set-prop "SYNA8008:00 06CB:CE58 Touchpad" "libinput Natural Scrolling Enabled" 1
 # Enable Touchpad Tap-to-Click support
-xinput --set-prop "SYNA2B34:01 06CB:7F8D Touchpad" "libinput Tapping Enabled" 1
+xinput --set-prop "SYNA8008:00 06CB:CE58 Touchpad" "libinput Tapping Enabled" 1
 
 ibus-daemon -d

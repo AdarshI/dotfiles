@@ -2,7 +2,7 @@
 *.alpha: .86
 
 !! Set a default font and font size
-*.font: Jet Brains Mono:size=12
+*.font: Fira Code:size=12
 
 Xcursor.size: 32
  

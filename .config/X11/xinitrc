@@ -32,17 +32,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xsetroot -cursor_name left_ptr
-# fcitx &
-setupinput		# run the `fixinput` script, switches caps and escape/super
-xsetwacom set "Wacom Intuos BT S Pad pad" Button 1 "key +ctrl z -ctrl"
-xsetwacom set "Wacom Intuos BT S Pad pad" Button 2 "key +ctrl y -ctrl"
-xsetwacom set "Wacom Intuos BT S Pad pad" Button 4 "key +ctrl s -ctrl"
-picom --experimental-backend &
-# touch /tmp/awesomewm-show-dashboard
-setbg &
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/X11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/X11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
 
 # Start wm
-dwmblocks &
 dwmcmd
-# exec bspwm
