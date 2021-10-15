@@ -4,12 +4,9 @@
 
 xsetroot -cursor_name left_ptr &
 setupinput &		# run the `fixinput` script, switches caps and escape/super
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
+# /usr/bin/pipewire &
+# /usr/bin/pipewire-pulse &
+# /usr/bin/pipewire-media-session &
+/usr/bin/pulseaudio &
 
-~/.local/bin/setbg &
-# setbg &
-# Start compositor
-picom --experimental-backend &
 

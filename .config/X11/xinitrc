@@ -38,5 +38,10 @@ else
 	. "$HOME/.xprofile"
 fi
 
+# ~/.local/bin/setbg &
+setbg &
+# Start compositor
+picom --experimental-backend &
+
 # Start wm
 dwmcmd
