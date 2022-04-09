@@ -38,10 +38,18 @@ else
 	. "$HOME/.xprofile"
 fi
 
-# ~/.local/bin/setbg &
+# start gnome-keyring
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 setbg &
+setupinput &
+dunst &
+mpd
+
 # Start compositor
 picom --experimental-backend &
 
 # Start wm
-dwmcmd
+dwmblocks &
+ssh-agent dwm

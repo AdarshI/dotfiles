@@ -24,16 +24,13 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'tpope/vim-surround'
 	Plug 'junegunn/goyo.vim'
 	Plug 'lervag/vimtex'
-	" plug 'xuhdev/vim-latex-live-preview'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'JuliaEditorSupport/julia-vim'
-	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-	Plug 'morhetz/gruvbox'
-	Plug 'arcticicestudio/nord-vim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'	
 	Plug 'dylanaraps/wal.vim'
 	Plug 'mattn/emmet-vim'
+	Plug 'one-dark/onedark.nvim'
 call plug#end()
 
 " LSP
@@ -77,10 +74,10 @@ let g:go_highlight_build_constraints = 1
 " set termguicolors
 
 set background=dark				" Tells Vim the background color
-let g:gruvbox_contrast_light 	= 'hard'
-let g:gruvbox_contrast_dark 	= 'medium'
-let g:gruxbox_transparent_bg 	= 1 " Doesn't work
-colorscheme wal
+" let g:gruvbox_contrast_light 	= 'hard'
+" let g:gruvbox_contrast_dark 	= 'medium'
+" let g:gruxbox_transparent_bg 	= 1 " Doesn't work
+colorscheme onedark
 " colorscheme gruvbox
 " colorscheme nord
 " hi Normal ctermbg=NONE guibg=NONE
@@ -88,7 +85,7 @@ colorscheme wal
 
 " Enables powerline to function properly
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
 
 "
 " Keymaps
@@ -163,6 +160,8 @@ map <leader>c :w! \| !compiler "<c-r>%"<CR>
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 autocmd VimLeave *.tex !texclear %
+
+" autocmd BufRead *.tex setlocal spell spelllang=en_us
 
 " Update binds when sxhkdrc is updated
 autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &

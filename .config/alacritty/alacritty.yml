@@ -3,22 +3,22 @@ window:
         x: 15
         y: 15
 
+    opacity: 0.9
+
 font:
-    size: 8
+    size: 7.5
 
     normal:
-        family: Inconsolata
+        family: FiraCode
         style: Regular
 
     bold:
-        family: Inconsolata
+        family: FiraCode
         style: Bold
 
     italic:
-        family: Inconsolata
+        family: FiraCode
         style: Italic
-
-# background_opacity: 0.9
 
 schemes:
     &nord
@@ -204,4 +204,4 @@ schemes:
             cyan:       "0xb55d42"
             white:      "0xc5c5c5"
 
-# colors: *gruvbox_dark
+# colors: *nord

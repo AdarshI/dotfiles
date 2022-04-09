@@ -2,13 +2,14 @@
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 # setopt autocd		# Automatically cd into typed directory.
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
+# wal -q -i ~/.config/wall.png
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
 # History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.cache/zsh/histfile
 
 # Load aliases and shortcuts if existent.
@@ -72,21 +73,20 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/adarsh/.local/share/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/adarsh/.local/share/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/adarsh/.local/share/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="$PATH:/home/adarsh/.local/share/anaconda3/bin"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/adarsh/.local/share/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/adarsh/.local/share/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/adarsh/.local/share/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$PATH:/home/adarsh/.local/share/anaconda3/bin"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-

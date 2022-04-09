@@ -22,7 +22,8 @@ alias \
 # Colorize commands when possible.
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
-	ll="ls -alhN --color=auto --group-directories-first" \
+	la="ls -AN --color=auto --group-directories-first" \
+	ll="ls -AlhN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
@@ -41,7 +42,9 @@ alias \
 	x="sxiv" \
 	z="zathura"
 
-fe() { find $HOME/.config/* $HOME/.local/bin/* | grep -v brave | fzf | xargs -r $EDITOR ;}	
+alias lf="lfub"
+
+fe() { find $HOME/.config/* $HOME/.local/bin/* | grep -vi 'brave\|libre\|nvm' | fzf | xargs -r $EDITOR ;}	
 
 alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \

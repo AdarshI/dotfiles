@@ -1,12 +1,19 @@
 #!/bin/sh
 [[ -f ~/.config/zsh/.zshenv ]] && source ~/.config/zsh/.zshenv
-[[ -f ~/.config/shell/profile ]] && source ~/.config/shell/profile
+
+userresources="$XDG_CONFIG_HOME/X11/xresources"
+USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
+USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
+ALTUSERXSESSION="$XDG_CACHE_HOME/X11/Xsession"
+ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+
+if [ -f "$userresources" ]; then
+    xrdb -merge "$userresources"
+fi
 
 xsetroot -cursor_name left_ptr &
-setupinput &		# run the `fixinput` script, switches caps and escape/super
-# /usr/bin/pipewire &
+# setupinput &		# run the `fixinput` script, switches caps and escape/super
+/usr/bin/pipewire &
 # /usr/bin/pipewire-pulse &
-# /usr/bin/pipewire-media-session &
-/usr/bin/pulseaudio &
-
+# /usr/bin/wireplumber &
 
