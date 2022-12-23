@@ -100,7 +100,7 @@ map gh
 map g top
 map D delete
 map E extract
-map C copyto
+# map C copyto
 map M moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
@@ -128,4 +128,4 @@ map W $setsid -f $TERMINAL >/dev/null 2>&1
 map Y $printf "%s" "$fx" | xclip -selection clipboard
 
 # Source Bookmarks
-source "~/.config/lf/shortcutrc"
+# source "~/.config/lf/shortcutrc"

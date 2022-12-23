@@ -1,9 +1,10 @@
 #!/bin/sh
 
-userresources=$XDG_CONFIG_HOME/x11/xresources
+userresources=$XDG_CONFIG_HOME/X11/xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 
 # merge in defaults and keymaps
 
@@ -38,18 +39,10 @@ else
 	. "$HOME/.xprofile"
 fi
 
-# start gnome-keyring
-eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
-setbg &
-setupinput &
-dunst &
-mpd
-
-# Start compositor
-picom --experimental-backend &
-
 # Start wm
-dwmblocks &
+# dwmblocks &
+picom --experimental-backend &
 ssh-agent dwm
+# exec awesome

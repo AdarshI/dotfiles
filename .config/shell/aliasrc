@@ -15,8 +15,8 @@ alias \
 	rm="rm -vI" \
 	bc="bc -ql" \
 	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
+	yt="yt-dlp -i --add-metadata --embed-thumbnail" \
+	yta="yt-dlp -i -x -f bestaudio/best --add-metadata --embed-thumbnail " \
 	ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
@@ -29,22 +29,26 @@ alias \
 	ccat="highlight --out-format=ansi"
 
 # These common commands are just too long! Abbreviate them.
-
 alias \
 	ka="killall" \
 	g="git" \
 	bt="bluetoothctl" \
 	sdn="sudo shutdown -h now" \
-	e="$EDITOR" \
-	se="sudo $EDITOR" \
-	v="$EDITOR" \
+	v="nvim" \
+	n="neovide --nofork --multigrid" \
+	hx="helix" \
+	se="doas $EDITOR" \
 	p="pacman" \
-	x="sxiv" \
+	sx="sxiv" \
 	z="zathura"
 
-alias lf="lfub"
+# Give custom scripts to launch applications
+alias \
+	lf="lfub"
 
-fe() { find $HOME/.config/* $HOME/.local/bin/* | grep -vi 'brave\|libre\|nvm' | fzf | xargs -r $EDITOR ;}	
+fe() { find $HOME/.config/* $HOME/.local/bin/* | grep -vi 'brave\|libre\|nvm' | fzf | xargs -r $EDITOR ;}
+
+tb() { tbook=$(find $HOME/Documents/library/textbooks/* | fzf) && [ -n "$tbook" ] && zathura "$tbook" ;}
 
 alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \

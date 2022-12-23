@@ -1,19 +1,21 @@
 #!/bin/sh
-[[ -f ~/.config/zsh/.zshenv ]] && source ~/.config/zsh/.zshenv
 
-userresources="$XDG_CONFIG_HOME/X11/xresources"
-USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
-USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
-ALTUSERXSESSION="$XDG_CACHE_HOME/X11/Xsession"
-ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+# This file runs when a DM logs you into a graphical session.
+# If you use startx/xinit like a Chad, this file will also be sourced.
 
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
-fi
+xrandr --dpi 96		# Set DPI. User may want to use a larger number for larger screens.
+setbg &			# set the background with the `setbg` script
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
+remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 
-xsetroot -cursor_name left_ptr &
-# setupinput &		# run the `fixinput` script, switches caps and escape/super
-/usr/bin/pipewire &
-# /usr/bin/pipewire-pulse &
-# /usr/bin/wireplumber &
+autostart="mpd dunst unclutter pipewire mpris-proxy"
 
+for program in $autostart; do
+	pidof -s "$program" || "$program" &
+done >/dev/null 2>&1
+
+# start gnome-keyring
+eval $(gnome-keyring-daemon --start)
+
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"

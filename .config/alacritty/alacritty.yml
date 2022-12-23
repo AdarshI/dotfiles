@@ -3,10 +3,10 @@ window:
         x: 15
         y: 15
 
-    opacity: 0.9
+    opacity: 0.7
 
 font:
-    size: 7.5
+    size: 8
 
     normal:
         family: FiraCode
@@ -75,7 +75,7 @@ schemes:
             background: "#211d1f"
             foreground: "#f3aead"
             cursor: "#f3aead"
-        
+
         normal:
             color0: "#211d1f"
             color1: "#B04A4F"
@@ -147,7 +147,7 @@ schemes:
     gruvbox_dark: &gruvbox_dark
         primary:
             # hard contrast: background = '#1d2021'
-            # medium contrast: background: '0x282828'
+            # medium contrast: background: '#282828'
             # soft contrast: background = '#32302f'
             background: '#282828'
             foreground: '#ebdbb2'
@@ -169,7 +169,7 @@ schemes:
             magenta: '0xd3869b'
             cyan:    '0x8ec07c'
             white:   '0xebdbb2'
-        
+
     fall_grotto: &fall_grotto
         primary:
             background: "0x19191a"
@@ -204,4 +204,4 @@ schemes:
             cyan:       "0xb55d42"
             white:      "0xc5c5c5"
 
-# colors: *nord
+colors: *gruvbox_dark

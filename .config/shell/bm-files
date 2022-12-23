@@ -3,9 +3,10 @@
 # keys	filename				description
 bf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
 bd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
-cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources	# Colors, themes and variables for X11
+cfx	${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc			# xinitrc file
+cfX	${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources	# Colors, themes and variables for X11
 cfb	${XDG_CONFIG_HOME:-$HOME/.config}/polybar/config 	# Polybar
-cfw ${XDG_CONFIG_HOME:-$HOME/.config}/bspwm/bspwmrc 	# wm
+cfw ${XDG_CONFIG_HOME:-$HOME/.config}/awesome/rc.lua #awesomewm
 cfk ${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/sxhkdrc 	# keybinds
 cft ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml 	# keybinds
 # cfb	~/.local/src/dwmblocks/config.h				# dwmblocks: the status bar for dwm
@@ -26,4 +27,3 @@ cfmb	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/bindings	# ncmpcpp (music player)
 cfmc	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/config	# ncmpcpp (music player) config
 cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
 cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
-cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler

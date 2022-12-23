@@ -3,7 +3,7 @@
 "|  \| |\ \ / / | || |\/| | |_) | |
 "| |\  | \ V /  | || |  | |  _ <| |___
 "|_| \_|  \_/  |___|_|  |_|_| \_\\____|
-"                                
+"
 
 "
 " Plugins
@@ -16,53 +16,75 @@ if ! filereadable(stdpath('data') . '/site/autoload/plug.vim')
 endif
 
 call plug#begin(stdpath('data') . '/plugged')
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'hrsh7th/nvim-compe'
-	Plug 'glepnir/lspsaga.nvim'
-	Plug 'SirVer/ultisnips'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-surround'
-	Plug 'junegunn/goyo.vim'
-	Plug 'lervag/vimtex'
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	Plug 'JuliaEditorSupport/julia-vim'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'	
-	Plug 'dylanaraps/wal.vim'
-	Plug 'mattn/emmet-vim'
-	Plug 'one-dark/onedark.nvim'
-call plug#end()
 
 " LSP
-lua require ('luavim.lsp')
-source $XDG_CONFIG_HOME/nvim/lsp.vim
+Plug 'neovim/nvim-lspconfig'
+Plug 'SirVer/ultisnips'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+" Language Support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'mfussenegger/nvim-jdtls'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'lervag/vimtex'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/goyo.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+" Theme
+Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'AlphaTechnolog/pywal.nvim'
+Plug 'xiyaowong/nvim-transparent'
+
+" Plug 'github/copilot.vim'
+
+call plug#end()
 
 "
-" Settings
+" Settings ################################################################
 "
-set number relativenumber
-set so=5
+set mouse=a
 set clipboard+=unnamedplus		" Allows copy paste between Neovim and global clipboard
+set completeopt=menuone
+set number relativenumber
+set cursorline
+set nohlsearch
+set nowrap
+syntax on
+set scrolloff=5
+
 filetype plugin on
-set wildmode=longest,list,full
+syntax enable
+set encoding=utf-8
 set path+=$HOME/.local/bin,**
-set wildmenu
 set hidden
-set mouse=a						" Enables mouse
-" let g:go_highlight_trailing_whitespace_error=0
+set wildmenu
+set wildmode=longest,list,full
 filetype plugin indent on
 set iskeyword+=- 				" Treats dash separated words as a word text object
 au! BufWritePost source $MYVIMRC %
 
-syntax on
-set nohlsearch
-" set cursorline 					" Enable highlighting of the current line
-set guicursor=
+" Spacing
 set smarttab					" Makes tabbing smarter will realize you have 2 vs 4
 set smartindent					" Makes indenting smart
-" set autoindent 				" Good auto indent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=0
+
 "" golang syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -71,58 +93,84 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" set termguicolors
+set guifont=Mononoki\ NF:h12
 
-set background=dark				" Tells Vim the background color
-" let g:gruvbox_contrast_light 	= 'hard'
-" let g:gruvbox_contrast_dark 	= 'medium'
-" let g:gruxbox_transparent_bg 	= 1 " Doesn't work
-colorscheme onedark
-" colorscheme gruvbox
-" colorscheme nord
-" hi Normal ctermbg=NONE guibg=NONE
-" hi! NonText ctermbg=NONE guibg=NONE
+let g:gruvbox_contrast_light 	= 'hard'
+let g:gruvbox_contrast_dark 	= 'medium'
+" let g:gruxbox_transparent_bg 	= 1
+colorscheme pywal
+" set background=dark		" Tells Vim the background color
+" set termguicolors 		" pywal does this automatically
+" let g:transparent_enabled = v:true
 
 " Enables powerline to function properly
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='gruvbox'
+let g:airline_theme='minimalist'
+
+if exists("g:neovide")
+    " Put anything you want to happen only in Neovide here
+		" let g:neovide_refresh_rate=60
+		" let g:neovide_transparency=0.8
+		" let g:neovide_cursor_vfx_mode="railgun"
+		" set guifont=Mononoki\ NF:h10
+else
+		" hi Normal ctermbg=NONE
+		" hi! NonText ctermbg=NONE
+		" hi Normal guibg=NONE
+		" hi! NonText guibg=NONE
+endif
 
 "
-" Keymaps
+" Keymaps ################################################################
 "
-let g:mapleader = "\<Space>"
-let g:maplocalleader = "\<Space>"
+let mapleader = "\<Space>"
 
 " Line number toggle
 noremap<C-M-l> :set invnumber invrelativenumber<CR>
 
 " Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+" nnoremap <leader>h    :vertical resize -2<CR>
+" nnoremap <leader>l    :vertical resize +2<CR>
+" nnoremap <leader>j    :resize -2<CR>
+" nnoremap <leader>k    :resize +2<CR>
 
 " TAB in general mode will move to next buffer
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 
-" Navigation
-" nnoremap <leader>h <C-W>h
-" nnoremap <leader>j <C-W>j
-" nnoremap <leader>k <C-W>k
-" nnoremap <leader>l <C-W>l
-
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
-" Better window navigation
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
+" vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmgs'
+" let g:tex_conceal=''
+" let g:vimtex_syntax_conceal = {
+" 	\ 'accents': 1,
+" 	\ 'ligatures': 1,
+" 	\ 'cites': 1,
+" 	\ 'fancy': 1,
+" 	\ 'greek': 1,
+" 	\ 'math_bounds': 1,
+" 	\ 'math_delimiters': 1,
+" 	\ 'math_fracs': 1,
+" 	\ 'math_super_sub': 1,
+" 	\ 'math_symbols': 1,
+" 	\ 'sections': 1,
+" 	\ 'styles': 1,
+" 	\}
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" Goyo
 function! s:goyo_enter()
 	set scrolloff=999
 endfunction
@@ -134,29 +182,23 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" lspsaga
-nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
-nnoremap <silent><leader>K :Lspsaga hover_doc<CR>
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-nnoremap <silent> gs :Lspsaga signature_help<CR>
-nnoremap <silent> gr :Lspsaga rename<CR>
-nnoremap <silent> gd :Lspsaga preview_definition<CR>
-nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
-nnoremap <silent> <leader>cc :Lspsaga show_cursor_diagnostics<CR>
-nnoremap <silent> ]e :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> [e :Lspsaga diagnostic_jump_prev<CR>
+" Telescope
+nnoremap <leader>f<space> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+autocmd BufWritePre * :%s/\s\+$//e
 
-let g:user_emmet_mode='n'
-let g:user_emmet_leader_key=','
+autocmd BufWritePost,BufNewFile *.njk set filetype=html
 
 " Refresh vimrc
 autocmd BufWritePost *.vim source $MYVIMRC
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>c :w! \| !compiler "<c-r>%"<CR>
+
+" Open corresponding .pdf/.html or preview
+	map <leader>p :!opout <c-r>%<CR><CR>
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 autocmd VimLeave *.tex !texclear %
@@ -170,8 +212,10 @@ autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
 autocmd BufWritePost bm-files,bm-dirs !shortcuts
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
-autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
-autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
+autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults,.Xresources set filetype=xdefaults
+autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults,.Xresources !xrdb -load "$XDG_CONFIG_HOME/X11/xresources" %
 
 " Recompile suckless programs automatically
 	" autocmd BufWritePost config.h,config.def.h !sudo make install
+
+lua require ('adarsh.lsp')
