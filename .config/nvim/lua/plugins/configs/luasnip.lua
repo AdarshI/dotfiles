@@ -44,4 +44,4 @@ vim.keymap.set({"i", "s"}, "<C-s>", function ()
 	end
 end, { silent = true })
 
-vim.keymap.set("n", "<leader><leader>s", "<cmd>so $XDG_CONFIG_HOME/nvim/after/plugin/luasnip.lua<CR>")
+-- vim.keymap.set("n", "<leader><leader>s", "<cmd>so $XDG_CONFIG_HOME/nvim/after/plugin/luasnip.lua<CR>")

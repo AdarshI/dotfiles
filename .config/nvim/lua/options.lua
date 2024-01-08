@@ -23,7 +23,7 @@ vim.opt.updatetime = 1000
 
 -- vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 vim.opt.conceallevel = 2
 vim.g.tex_conceal = "abdmg"
