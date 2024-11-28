@@ -1,13 +1,17 @@
 # You can add comments to these files with #
 cac	${XDG_CACHE_HOME:-$HOME/.cache}
 cf	${XDG_CONFIG_HOME:-$HOME/.config}
+cfnv	${XDG_CONFIG_HOME:-$HOME/.config}/nvim
 dl	${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+tor	${XDG_DOWNLOAD_DIR:-$HOME/Downloads}/tor
 dx	${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+dxn	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/notes
+rr	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/research
+pi2	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/research/zalatel_group/pi2
 lb	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/library
-# lbt	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/library/textbooks
-lbt	/home/adarsh/Documents/library/textbooks
+lbt	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/library/textbooks
 dv	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/vpnfiles
-sch	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/school/university/f22
+sch	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/school/university/f24
 sps	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/school/university/sps
 co 	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/code
 latin	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/latin
@@ -16,9 +20,10 @@ h	$HOME
 m	${XDG_MUSIC_DIR:-$HOME/Music}
 mc	${XDG_MUSIC_DIR:-$HOME/Music}/classical
 mn	/mnt
-pi	${XDG_PICTURES_DIR:-$HOME/Pictures}
+pp	${XDG_PICTURES_DIR:-$HOME/Pictures}
+pw	${XDG_PICTURES_DIR:-$HOME/Pictures}/wallpapers
 sc	$HOME/.local/bin
 src	$HOME/.local/src
-www	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/code/hugo_website
-vd	${XDG_VIDEOS_DIR:-$HOME/Videos}
-vdy	${XDG_VIDEOS_DIR:-$HOME/Videos}/yt
+www	${XDG_DOCUMENTS_DIR:-$HOME/Documents}/code/adarshiyer_net
+vv	${XDG_VIDEOS_DIR:-$HOME/Videos}
+vy	${XDG_VIDEOS_DIR:-$HOME/Videos}/yt

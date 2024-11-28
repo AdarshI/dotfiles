@@ -34,13 +34,18 @@ alias \
 	g="git" \
 	bt="bluetoothctl" \
 	sdn="sudo shutdown -h now" \
-	v="nvim" \
-	n="neovide --nofork --multigrid" \
+	n="nvim" \
 	hx="helix" \
 	se="doas $EDITOR" \
 	p="pacman" \
-	sx="sxiv" \
-	z="zathura"
+	im="nsxiv" \
+	z="zathura" \
+	open="xdg-open"
+#n="neovide --nofork --multigrid" \
+
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+alias please="sudo"
 
 # Give custom scripts to launch applications
 alias \

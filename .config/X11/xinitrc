@@ -42,7 +42,7 @@ fi
 export SSH_AUTH_SOCK
 
 # Start wm
-# dwmblocks &
-picom --experimental-backend &
-ssh-agent dwm
-# exec awesome
+picom &
+#dwmblocks &
+#ssh-agent dwm
+exec dbus-run-session awesome

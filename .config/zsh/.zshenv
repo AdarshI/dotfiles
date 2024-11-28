@@ -1,12 +1,12 @@
 #!/bin/zsh
 ZDOTDIR=~/.config/zsh/
 
-# Adds `~/.local/bin` to $PATH
+# Adds `~/.local/bin` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export READER="zathura"
 
@@ -15,11 +15,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DOCUMENTS_DIR="$HOME/Documents"
-export XDG_DOWNLOAD_DIR="$HOME/Downloads"
-export XDG_MUSIC_DIR="$HOME/Music"
-export XDG_PICTURES_DIR="$HOME/Pictures"
-export XDG_VIDEOS_DIR="$HOME/Videos"
+export XDG_DOCUMENTS_DIR="$HOME/dox"
+export XDG_DOWNLOAD_DIR="$HOME/dl"
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_PICTURES_DIR="$HOME/pix"
+export XDG_VIDEOS_DIR="$HOME/vids"
 
 export SVDIR="$XDG_DATA_HOME/service"
 
@@ -33,6 +33,9 @@ export GNUPGHOME="${XDG_CONFIG_HOME:-$HOME/.config}/gnupg"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia_depot:$JULIA_DEPOT_PATH"
+export PYTHON_HISTORY=$XDG_STATE_HOME/python/history
+export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+export PYTHONUSERBASE=$XDG_DATA_HOME/python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
@@ -46,6 +49,7 @@ export MATHEMATICA_USERBASE="$XDG_CONFIG_HOME"/mathematica
 export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/rediscli_history
 export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export WINEPREFIX="$XDG_DATA_HOME"/wine
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 export WINIT_X11_SCALE_FACTOR=1.66
 # export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
@@ -55,6 +59,7 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$CARGO_HOME/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/julia/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/MATLAB/R2021b/bin"
+export PATH="$PATH:/usr/local/games"
 
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height=20"
@@ -62,6 +67,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in bspwm/dwm
 export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
 export TDESKTOP_USE_GTK_FILE_DIALOG=1
 export eGTK_IM_MODULE=ibus
+export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_SCALE_FACTOR=1.2
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export NO_AT_BRIDGE=1

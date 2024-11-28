@@ -1,8 +1,9 @@
 function ColorMyPencils(color)
-	color = color or "rose-pine"
+	color = color or "base16-default-dark"
 
 	vim.o.background = 'dark'
-	vim.g.gruvbox_contrast_light = 'medium'
+	vim.g.gruvbox_contrast_light = 'hard'
+	vim.g.gruvbox_contrast_dark = 'soft'
 
 	vim.cmd.colorscheme(color)
 
@@ -10,4 +11,4 @@ function ColorMyPencils(color)
 	-- vim.dawnapi.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-ColorMyPencils("base16-default-dark")
+ColorMyPencils("pywal")
